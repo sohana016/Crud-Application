@@ -19,7 +19,6 @@ class Data extends Component {
         }
     }
     componentDidMount() {
-
         this.getDataById();
     }
 
@@ -35,8 +34,6 @@ class Data extends Component {
             });
             let res = await response.json();
             this.setState({ dataById: res })
-
-
         } catch (error) {
             console.log("error...", error)
         }
@@ -45,9 +42,9 @@ class Data extends Component {
         const dataById = this.state.dataById
         return (
             <div style={{ marginLeft: "20px", padding: "50px" }}>
+                <a href="/" style={{ marginRight: "250px", color: "blue" }}>Back</a>
                 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                     <Col className="gutter-row" span={9}>
-
                     </Col>
                     <Col className="gutter-row" span={6}>
                         <Card style={{ width: 300, height: 250, justifyContent: "center", marginBottom: "50px" }}>
@@ -56,7 +53,6 @@ class Data extends Component {
                         </Card>
                     </Col>
                     <Col className="gutter-row" span={9}>
-
                     </Col>
 
                 </Row>

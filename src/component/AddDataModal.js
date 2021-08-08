@@ -14,7 +14,6 @@ class AddDataModal extends Component {
                     visible={this.props.isVisibility}
                     onOk={this.props.onSubmit}
                     onCancel={this.props.handleCancel}
-
                     footer={[
                         <Button key="back" onClick={this.props.handleCancel} >
                             Return
@@ -24,7 +23,6 @@ class AddDataModal extends Component {
                         </Button>,
                     ]}
                 >
-
                     <div>
                         <Row>
                             <Col span={2}> <label>Title</label></Col>

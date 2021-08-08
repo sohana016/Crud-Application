@@ -8,5 +8,5 @@ const rootReducer = combineReducers({
 });
 
 export const configureStore = () => {
-  return createStore(rootReducer, applyMiddleware(createLogger()));//createLogger()
+  return createStore(rootReducer, applyMiddleware(createLogger()));
 }

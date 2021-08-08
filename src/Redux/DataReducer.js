@@ -1,10 +1,8 @@
 import {DATA,ID} from './Action/action';
 
 const initialState = {
-
  data:[],
  id:null,
-
 
 };
 

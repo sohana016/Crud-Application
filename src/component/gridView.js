@@ -39,13 +39,10 @@ class gridView extends Component {
             let res = await response.json();
             this.setState({ data: res })
 
-
         } catch (error) {
             console.log("error...", error)
         }
     }
-
-
 
     removeItem(item) {
         if (window.confirm('Are you Sure?')) {
@@ -59,7 +56,7 @@ class gridView extends Component {
                             "accept": "application/json"
                         },
                     });
-                    console.log(",,,,,,,,,,,,,delete", item.id)
+                    // console.log(",,,,,,,,,,,,,delete", item.id)
                 } catch (error) {
                     console.log(error);
                 }
@@ -72,7 +69,6 @@ class gridView extends Component {
         });
     };
     handleCancel = e => {
-
         this.setState({
             visible: false,
         });
@@ -101,7 +97,6 @@ class gridView extends Component {
       
       
               .then(data => {
-                console.log(",,,post", data)
               })
       
           } catch (error) {
@@ -136,37 +131,33 @@ class gridView extends Component {
                                             <Row>
                                                 <Col span={9}>
                                                     <a href={`/details?id=${item.id}`} style={{ marginRight: "180px", color: "blue" }}>Details</a>
-
                                                 </Col>
                                                 <Col span={1}></Col>
                                                 <Col span={6}>
                                                     <Button onClick={() => { this.removeItem(item) }} style={{ marginLeft: "80px", color: "blue", marginBottom: "50px" }}> Remove</Button>
                                                </Col>
-                                            </Row>
-
+                                           </Row>
                                         </div>
-
                                     </Card>
                                 </Col>
                             </div>
                         )
                     })}
-
                 </Row>
                 {this.state.visible === true ? <AddDataModal isVisibility={this.state.visible} handleCancel={this.handleCancel} title={this.state.title} body={this.state.body} onChangeTitle={this.onChangeTitle} onChangeBody={this.onChangeBody} onSubmit={this.onSubmit}/> : ""}
             </div>
-
         );
     }
 }
-function mapState(state) {
-     console.log("............red", state)
-     return {
-    //    data: state.Reducer.data,
-     
-     }
-    }
-     
-     
-     
-export default withRouter(connect(mapState)(gridView));
+
+const mapStateToProps=(state)=>({ 
+
+    // data:state.data 
+})
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // addData: ()=> dispatch(addData)
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(gridView)
+
